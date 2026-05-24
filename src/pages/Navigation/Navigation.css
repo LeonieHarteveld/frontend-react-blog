@@ -1,0 +1,47 @@
+.navbar {
+    width: 100%;
+    height: 100px;
+    color: white;
+    background: rgb(44,47,57);
+    padding: 5px 50px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed; /* vast bovenaan */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+
+.navbar a,
+.navbar a:visited,
+.navbar a:hover,
+.navbar a:active {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
+.navbar a.active-menu-link {
+    color: #38E790;
+}
+
+.navbar img {
+    width: 100%;
+}
+
+.imageWrapper {
+    width: 300px;
+}
