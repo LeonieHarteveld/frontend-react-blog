@@ -14,6 +14,9 @@ function NewPosts () {
         setFormState({
             ...formState,
             [e.target.name]: e.target.value,
+            readtime: +1,
+            comments: 0,
+            shares: 0,
         });
     }
 
@@ -64,7 +67,7 @@ function NewPosts () {
                     value={formState.content}
                     onChange={handleChange}
                     required={true}
-                    minLength={200}
+                    minLength={2}
                     maxLength={2000}
                 />
 
