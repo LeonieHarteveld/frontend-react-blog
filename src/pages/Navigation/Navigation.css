@@ -4,16 +4,14 @@
     color: white;
     background: rgb(44,47,57);
     padding: 5px 50px;
+    margin-bottom: 100px;
 
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    position: fixed; /* vast bovenaan */
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    box-sizing: border-box;
+    position: static;
 }
 
 .navbar ul {
@@ -36,6 +34,7 @@
 
 .navbar a.active-menu-link {
     color: #38E790;
+    text-decoration: underline;
 }
 
 .navbar img {

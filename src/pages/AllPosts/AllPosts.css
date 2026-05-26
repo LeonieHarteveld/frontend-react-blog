@@ -1,0 +1,33 @@
+.post-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+
+
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.all-posts {
+    background-color: lightgray;
+}
+.post-info-wrapper a,
+.post-info-wrapper a:visited,
+.post-info-wrapper a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-name {
+    color: #38E790;
+}

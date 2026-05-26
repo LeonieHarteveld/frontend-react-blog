@@ -1,0 +1,24 @@
+.blog-wrapper h1 {
+    text-align: start;
+}
+.blog-wrapper {
+    padding: 0 30px;
+}
+
+.home-link a,
+.home-link:hover,
+.home-link:visited,
+.home-link:active {
+    text-decoration: none;
+    color: #38E790;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.blog-wrapper p {
+    margin: 20px 0;
+}
+
+.blog-wrapper h5 {
+    font-weight: lighter;
+}
