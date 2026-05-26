@@ -17,9 +17,16 @@ function NewPosts () {
         });
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(formState);
+    }
+
     return (
         <div className='new-posts-wrapper'>
-            <form onSubmit={e => e.preventDefault()}>
+            <h1>Post toevoegen</h1>
+
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="title" >Titel</label>
                 <input
                     type="text"
@@ -27,34 +34,41 @@ function NewPosts () {
                     id='title'
                     value={formState.title}
                     onChange={handleChange}
+                    required={true}
                 />
 
-                <label htmlFor="subtile" >Subtitel</label>
+                <label htmlFor="subtitle" >Subtitel</label>
                 <input
                     type="text"
-                    name='subtile'
-                    id='subtile'
-                    value={formState.subtile}
+                    name='subtitle'
+                    id='subtitle'
+                    value={formState.subtitle}
                     onChange={handleChange}
+                    required={true}
                 />
 
-                <label >Titel</label>
+                <label htmlFor="author" >Auteur</label>
                 <input
                     type="text"
-                    name='title'
-                    id='title'
-                    value={formState.title}
+                    name='author'
+                    id='author'
+                    value={formState.author}
                     onChange={handleChange}
+                    required={true}
                 />
 
-                <label >Titel</label>
-                <input
-                    type="text"
-                    name='title'
-                    id='title'
-                    value={formState.title}
+                <label htmlFor="content" >Bericht</label>
+                <textarea
+                    name='content'
+                    id='content'
+                    value={formState.content}
                     onChange={handleChange}
+                    required={true}
+                    minLength={200}
+                    maxLength={2000}
                 />
+
+                <button type="submit">Toevoegen</button>
 
 
             </form>

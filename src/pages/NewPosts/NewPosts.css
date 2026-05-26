@@ -1,4 +1,30 @@
 .new-posts-wrapper form {
     display: flex;
     flex-direction: column;
+    padding: 0 20px;
+}
+
+.new-posts-wrapper {
+    background: lightgray;
+}
+
+.new-posts-wrapper input {
+    border: none;
+    border-radius: 2px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.new-posts-wrapper textarea {
+    border: none;
+    border-radius: 2px;
+    height: 250px;
+    margin-bottom: 15px;
+}
+
+.new-posts-wrapper button {
+    background: #38E790;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 0;
 }
