@@ -1,5 +1,7 @@
 import './NewPosts.css'
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+
 
 
 function NewPosts () {
@@ -7,7 +9,8 @@ function NewPosts () {
         title: '',
         subtitle: '',
         author: '',
-        content: ''
+        content: '',
+
     });
 
     function handleChange(e) {
@@ -17,12 +20,18 @@ function NewPosts () {
             readtime: +1,
             comments: 0,
             shares: 0,
+            created: new Date(),
         });
+
     }
+
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
         console.log(formState);
+        navigate("/");
+
     }
 
     return (
