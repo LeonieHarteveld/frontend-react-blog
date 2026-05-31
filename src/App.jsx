@@ -10,7 +10,7 @@ import BlogDetails from "./pages/BlogDetails/BlogDetails.jsx";
 function App() {
     return (
 
-        <body>
+        <div>
         <Navigation/>
 
         <main >
@@ -24,7 +24,7 @@ function App() {
             </Routes>
 
         </main>
-        </body>
+        </div>
     )
 
 }
