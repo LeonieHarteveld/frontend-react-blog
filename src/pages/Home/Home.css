@@ -10,12 +10,12 @@ img {
     padding: 0 30px;
 }
 
-h1 {
-    text-align: center;
-}
-
-.home-container p {
+.home-container figcaption {
     margin-top: 50px;
     align-self: flex-end;
     text-align: end;
+}
+
+.home-container p {
+    font-size: 1.3em;
 }

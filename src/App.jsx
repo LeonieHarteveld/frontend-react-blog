@@ -11,19 +11,19 @@ function App() {
     return (
 
         <div>
-        <Navigation/>
-
-        <main >
-
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/new-posts" element={<NewPosts/>}/>
-                <Route path="/all-posts" element={<AllPosts/>}/>
-                <Route path="*" element={<Error/>}/>
-                <Route path="/posts/:id" element={<BlogDetails/>}/>
-            </Routes>
-
-        </main>
+            <Navigation/>
+            <main>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/new-posts" element={<NewPosts/>}/>
+                    <Route path="/all-posts" element={<AllPosts/>}/>
+                    <Route path="*" element={<Error/>}/>
+                    <Route path="/posts/:id" element={<BlogDetails/>}/>
+                </Routes>
+            </main>
+            <footer className="footer-navigation outer-content-container">
+                Blogventure &copy; 2023 - ontwikkeld voor NOVI Hogeschool
+            </footer>
         </div>
     )
 

@@ -9,6 +9,7 @@ function AllPosts() {
     const [posts, setPosts] = useState([]);
     const [error, toggleError] = useState(false);
 
+    useEffect(() => {
     async function fetchBlogData() {
         try {
             toggleError(false);
@@ -23,7 +24,6 @@ function AllPosts() {
         }
     }
 
-    useEffect(() => {
         fetchBlogData();
     }, []);
 
