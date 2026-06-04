@@ -1,0 +1,21 @@
+img {
+    width: 500px;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.home-container p {
+    margin-top: 50px;
+    align-self: flex-end;
+    text-align: end;
+}

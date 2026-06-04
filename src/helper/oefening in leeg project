@@ -1,0 +1,158 @@
+import './App.css'
+import axios from 'axios';
+import {useEffect, useState} from "react";
+
+function App() {
+    const API_KEY = "69197f2a-8d89-464a-8b9c-04da62d6ea68";
+    const endpoint = 'https://novi-backend-api-wgsgz.ondigitalocean.app/api/blogposts';
+    const [posts, setPosts] = useState([]);
+    const [error, toggleError] = useState(false);
+
+    async function fetchBlogData() {
+        try {
+            toggleError(false);
+            const result = await axios.get(endpoint, {
+                headers: {'novi-education-project-id': API_KEY}
+            });
+            setPosts(result.data);
+        } catch (e) {
+            console.log(e);
+            toggleError(true);
+        }
+    }
+
+    async function fetchPostsSix() {
+        try {
+            toggleError(false);
+            const result = await axios.get(endpoint, {
+                headers: {'novi-education-project-id': API_KEY},
+                params: {"id": 6}
+
+
+            });
+            console.log(result.data);
+            console.log("het is gelukt!")
+
+        } catch (e) {
+            console.error(e);
+            console.log("Het is niet gelukt 😥")
+            toggleError(true);
+        }
+    }
+
+    async function createPosts() {
+        try {
+            toggleError(false);
+            const result = await axios.post(
+                endpoint,
+                {
+                    "title": "Wat gebruiker heeft ingevuld",
+                    "subtitle": "Wat gebruiker heeft ingevuld",
+                    "content": "Wat gebruiker heeft ingevuld, in dit geval minder dan 100 woorden",
+                    "author": "Voornaam achternaam",
+                    "created": "2023-09-21T09:30:00Z",
+                    "readTime": 1,
+                    "comments": 0,
+                    "shares": 0
+                },
+                {headers: {'novi-education-project-id': API_KEY}})
+            console.log(result.data);
+            console.log("het is gelukt!")
+        } catch (e) {
+            console.error(e);
+            console.log("Het is niet gelukt 😥")
+            toggleError(true);
+        }
+    }
+
+    function getNewestPostsId(posts) {
+        const sortedPosts = [...posts].sort((a, b) => b.id - a.id);
+        return sortedPosts[0]
+
+    }
+
+
+    async function deleteLatestPosts() {
+        try {
+            toggleError(false);
+            const result = await axios.get(endpoint, {
+                headers: {
+                    'novi-education-project-id': API_KEY,
+                },
+            });
+
+            const newestPost = getNewestPostsId(result.data);
+
+            const deleteResult = await axios.delete(
+                `${endpoint}/${newestPost.id}`,
+                {
+                    headers: {
+                        'novi-education-project-id': API_KEY,
+                    },
+                }
+            );
+
+            console.log(deleteResult.data);
+            console.log(result.data);
+            console.log('Het is gelukt!');
+        } catch (e) {
+            console.error(e);
+            console.log('Het is niet gelukt 😥');
+            toggleError(true);
+        }
+    }
+
+    useEffect(() => {
+        fetchBlogData();
+    }, []);
+
+    async function updateFirstPost() {
+        try {
+            toggleError(false);
+            const sortedPosts = [...posts].sort((a, b) => a.id - b.id);
+            const firstPost = sortedPosts[0];
+
+            const result = await axios.put(
+                `${endpoint}/${firstPost.id}`,
+                {
+                    ...firstPost,
+                    title: "Hoi",
+                    subtitle: "Nieuwe subtitel",
+                    content: "Nieuwe content",
+                },
+                {
+                    headers: {
+                        'novi-education-project-id': API_KEY,
+                    },
+                }
+            );
+
+            console.log(result.data);
+            console.log("het is gelukt!");
+        } catch (e) {
+            console.error(e);
+            console.log('Het is niet gelukt 😥');
+            toggleError(true);
+        }
+    }
+    return (
+
+
+        <>
+            {error && (
+                <p>Er ging iets mis bij het ophalen van de blogposts.</p>
+            )}
+            <button onClick={fetchBlogData}>klik hier voor blogposts</button>
+            <button onClick={fetchPostsSix}>klik hier voor blogposts 6</button>
+            <button onClick={createPosts}>Update blogposts</button>
+            <button onClick={deleteLatestPosts}>
+                Verwijder laatste post
+            </button>
+            <button onClick={updateFirstPost}>Update eerste post</button>
+
+
+        </>
+    )
+}
+
+export default App
