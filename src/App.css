@@ -17,3 +17,9 @@
 /*.img {*/
 /*    width: 500px;*/
 /*}*/
+
+footer {
+    background-color: #38E790;
+    padding: 10px;
+    text-align: center;
+}
